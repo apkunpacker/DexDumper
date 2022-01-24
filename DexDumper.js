@@ -116,8 +116,7 @@ function DumpApkUnpacker(Addr, SZ) {
     if (file_handle && file_handle != null) {
         Memory.protect(Addr, SZ, 'rwx');
         var dex_buffer = Addr.readByteArray(SZ);
-       // var Fixed = dexFix(dex_buffer)
-        file_handle.write(Fixed);
+        file_handle.write(dex_buffer);
         file_handle.flush();
         file_handle.close();
         console.warn("[dump]:", file_path);
